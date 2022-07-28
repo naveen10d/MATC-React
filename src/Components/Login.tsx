@@ -7,11 +7,11 @@ export default function Login() {
     <div>
       <input
         type='text'
-        onChange={(e)=>setName(e.target.value)}/>
+        onChange={(e) => setName(e.target.value)} />
       <input
         type='text'
         onChange={(e) => setPassword(e.target.value)} />
-      <button disabled = {(name&&password)?false:true}>click</button>
+      <button color = 'primary' disabled={(name && password) ? false : true}>click</button>
     </div>
   )
 }
