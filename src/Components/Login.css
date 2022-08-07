@@ -1,0 +1,11 @@
+.check{
+    height:100%;
+    background-image: 'GN0314_LG_MENU-DogAndCat-20160818.jpeg';
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: end;
+}

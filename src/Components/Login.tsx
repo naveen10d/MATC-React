@@ -1,17 +1,75 @@
-import React from 'react'
+import { Formik } from 'formik';
+import LoginImg from "../assets/login-img.jpeg"
+import './Login.css'
 
 export default function Login() {
-  const [name, setName] = React.useState('');
-  const [password, setPassword] = React.useState('')
+
   return (
-    <div>
-      <input
-        type='text'
-        onChange={(e) => setName(e.target.value)} />
-      <input
-        type='text'
-        onChange={(e) => setPassword(e.target.value)} />
-      <button color = 'primary' disabled={(name && password) ? false : true}>click</button>
-    </div>
-  )
+    <>
+      <Formik
+        initialValues={{ email: "", password: "" }}
+        validate={(values) => {
+          const errors = { email: '' };
+          if (!values.email) {
+            errors.email = "Required";
+          } else if (
+            !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+          ) {
+            errors.email = "Invalid email address";
+          }
+          return errors;
+        }}
+        onSubmit={(values, { setSubmitting }) => {
+          setTimeout(() => {
+            alert(JSON.stringify(values, null, 2));
+            setSubmitting(false);
+          }, 400);
+        }}
+      >
+        {({
+          values,
+          errors,
+          touched,
+          handleChange,
+          handleBlur,
+          handleSubmit,
+          isSubmitting,
+        }) => (
+          <div
+            className="container"
+          >
+            <div className="row">
+              <div className="col-6">
+                <img src={LoginImg} alt='Login-img' className='img-fluid login-img' />
+              </div>
+              <div className="col-6">
+                <form onSubmit={handleSubmit} className='form'>
+                  <input
+                    type="email"
+                    name="email"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.email}
+                  />
+                  {errors.email && touched.email && errors.email}
+                  <input
+                    type="password"
+                    name="password"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.password}
+                  />
+                  {errors.password && touched.password && errors.password}
+                  <button type="submit" disabled={isSubmitting}>
+                    Submit
+                  </button>
+                </form>
+              </div>
+            </div>
+
+          </div>
+        )}
+      </Formik>
+    </>
+  );
 }
