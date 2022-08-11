@@ -1,6 +1,6 @@
 import React from 'react'
 // import { useNavigate } from "react-router-dom"
-import { BsFillHouseDoorFill, BsPersonCircle } from "react-icons/bs";
+import { BsFillHouseDoorFill, BsPersonCircle, BsCart } from "react-icons/bs";
 import './Header.css';
 
 export default function Header() {
@@ -16,9 +16,12 @@ export default function Header() {
 
     return (
         <div className='header'>
-            <div className = 'check'>
+            <div className='iconSpace'>
                 <BsFillHouseDoorFill onClick={() => { onHomePage() }} />
-                <BsPersonCircle onClick={() => { onLoginPage() }} />
+                <div>
+                    <BsPersonCircle onClick={() => { onLoginPage() }} />
+                    <BsCart />
+                </div>
             </div>
         </div>
     )

@@ -1,0 +1,72 @@
+@import ".././../../node_modules/bootstrap/scss/mixins";
+@import ".././../../node_modules/bootstrap/scss/functions";
+@import ".././../../node_modules/bootstrap/scss/variables";
+
+//font
+$theme-font-family: Nunito Sans;
+//theme-colour
+$primary: #2638e0;
+$primary1: #7380ae;
+$darkblack: #09122e;
+$highlight1: #b2aba5;
+$highlight2: #6f6763;
+$danger: #e2dddc;
+$secondary: #faa74a;
+$brandcolor1: #002a54;
+$brandcolor2: #611912;
+$brandcolor3: #8095aa;
+$brandcolor4: #8095;
+$grey: #ebebeb;
+$light: #ffffff;
+$dark: #000000;
+$darkhard: #09122e;
+$red1: #f3b5b1;
+$dark2: #667085;
+$white: white;
+$grey1: #667085;
+$grey2: #a6a6a6;
+$grey3: #667085;
+$darkgrey: #7380ae;
+$grey4: #f2f4f7;
+$success: #32a071;
+$dark5: #f2f4f7;
+$dark1: #475467;
+$criteria: #f2f4fa;
+$blue: #c3e8f0;
+$orange: #800080;
+$theme-colors: (
+    "primary": $primary,
+    "secondary": $secondary,
+    "danger": $danger,
+    "success": $success,
+    "light": $light,
+    "dark": $dark,
+    "primary1": $primary1,
+    "darkgrey": $darkgrey,
+    "darkblack": $darkblack,
+    "blue": $blue,
+    "orange": $orange,
+    "red1": $red1,
+);
+$custom-theme-colors: (
+    "highlight1": $highlight1,
+    "highlight2": $highlight2,
+    "brandcolor1": $brandcolor1,
+    "brandcolor2": $brandcolor2,
+    "brandcolor3": $brandcolor3,
+    "grey": $grey,
+    "grey1": $grey1,
+    "grey2": $grey2,
+    "grey3": $grey3,
+    "white": $white,
+    "primary1": $primary1,
+    "darkgrey": $darkgrey,
+    "darkblack": $darkblack,
+    "blue": $blue,
+    "orange": $orange,
+    "red1": $red1,
+);
+$theme-colors: map-merge($theme-colors, $custom-theme-colors);
+$theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
+
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";

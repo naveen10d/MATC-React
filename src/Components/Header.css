@@ -1,12 +1,12 @@
 .header {
-    height: 20%;
-    padding: 0 50px;
-    color: #fff;
-    line-height: 64px;
-    background: #b2b4b2;
-  }
+  height: 20%;
+  padding: 0 50px;
+  color: #fff;
+  line-height: 64px;
+  background: #b2b4b2;
+}
 
-.check{
+.check {
   display: flex;
   justify-content: space-between;
   font-size: 30px;
