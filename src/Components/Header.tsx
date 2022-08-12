@@ -1,27 +1,15 @@
-import React from 'react'
-// import { useNavigate } from "react-router-dom"
-import { BsFillHouseDoorFill, BsPersonCircle, BsCart } from "react-icons/bs";
-import './Header.css';
+import { Link, BrowserRouter as Router } from "react-router-dom"
+import { BsFillHouseDoorFill, BsPersonCircle } from "react-icons/bs";
 
 export default function Header() {
 
-    // const navigate = useNavigate();
-
-    const onHomePage = () => {
-        // navigate(`/home`)
-    }
-    const onLoginPage = () => {
-        // navigate(`/login`)
-    }
-
     return (
-        <div className='header'>
-            <div className='iconSpace'>
-                <BsFillHouseDoorFill onClick={() => { onHomePage() }} />
-                <div>
-                    <BsPersonCircle onClick={() => { onLoginPage() }} />
-                    <BsCart />
-                </div>
+        <div>
+            <div className='d-flex justify-content-between fs-2 p-3 bg-danger'>
+                <Router>
+                    <Link to='/'> <BsFillHouseDoorFill /></Link>
+                    <Link to='/login'><BsPersonCircle /></Link>
+                </Router>
             </div>
         </div>
     )

@@ -1,10 +1,11 @@
 import { useFormik } from 'formik';
 import { ValidationSchema } from './ValidationSchema'
-import LoginImg from "../../assets/login-img.jpeg"
+import { Assessment } from '../../assets/Cards'
+import { useNavigate, Link } from 'react-router-dom';
 
 
 export default function Register() {
-
+  const navigate = useNavigate()
   const formik = useFormik({
     initialValues: {
       firstName: '',
@@ -19,13 +20,17 @@ export default function Register() {
       console.log('check', values)
     },
   });
+
+  const handleClick = () => {
+    navigate(`/login`)
+  }
   return (
     <div
       className="container"
     >
       <div className="row">
         <div className="col-4">
-          <img src={LoginImg} alt='Login-img' className='img-fluid login-img' />
+          <img src={Assessment} alt='Login-img' className='img-fluid login-img' />
         </div>
         <div className='col-8 d-flex flex-column justify-content-center align-items-center shadow text-muted'>
           <div className='d-flex justify-content-center align-items-center fs-1 mt-3 text-dark'> Register Here!!! </div>
@@ -95,10 +100,10 @@ export default function Register() {
                     {formik.errors.confirmPassword}</div>) : null}
               </div>
             </div>
-            <button type="submit" className='mt-4 p-2 w-25'>
+            <button type="submit" className='mt-4 p-2 w-25' onClick={handleClick}>
               Submit
             </button>
-            <p className='mt-4'> Have already registered ? Then <a href="https://www.w3schools.com"> Login </a> to start online test.</p>
+            <p className='mt-4'> Have already registered ? Then <Link to='/login'> Login </Link> to start online test.</p>
           </form>
         </div>
       </div>
