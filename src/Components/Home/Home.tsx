@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 export default function Home() {
     return (
         <div className='container'>
-            < div className='row'>
+            < div className='row header'>
                 {cards.map((card) => (
                     <div className='col-6'>
                         <div className="d-flex justify-content-center align-items-center shadow m-4 card">

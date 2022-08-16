@@ -2,7 +2,7 @@ import { Container, Row, Col } from "react-bootstrap";
 
 export default function Footer() {
   return (
-    <div>
+    <div className='bg-grey'>
       <hr />
       <Container>
         <Row>

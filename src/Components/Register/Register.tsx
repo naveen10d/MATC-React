@@ -28,7 +28,7 @@ export default function Register() {
     <div
       className="container"
     >
-      <div className="row">
+      <div className="row header">
         <div className="col-4">
           {/* <img src={Assessment} alt='Login-img' className='img-fluid login-img' /> */}
         </div>

@@ -23,12 +23,12 @@ export default function Login() {
   }
   return (
     <div className="container">
-      <div className="row">
+      <div className="row header">
         <div className="col-6">
           {/* <img src={Assessment} alt='Login-img' className='img-fluid login-img' /> */}
         </div>
         <div className='col-6'>
-          <div className='d-flex flex-column justify-content-center align-items-center shadow shadow-info shadow-intensity-lg text-muted m-4'>
+          <div className='d-flex flex-column justify-content-center align-items-center shadow text-muted m-4'>
             <div className='d-flex justify-content-center align-items-center fs-1 m-3 text-dark'> Login Here!!!</div>
             <form onSubmit={formik.handleSubmit} className='d-flex flex-column justify-content-center align-items-center'>
               <div>
