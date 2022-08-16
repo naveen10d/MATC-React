@@ -1,6 +1,6 @@
-@import ".././../../node_modules/bootstrap/scss/mixins";
-@import ".././../../node_modules/bootstrap/scss/functions";
-@import ".././../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
 
 //font
 $theme-font-family: Nunito Sans;
@@ -10,13 +10,13 @@ $primary1: #7380ae;
 $darkblack: #09122e;
 $highlight1: #b2aba5;
 $highlight2: #6f6763;
-$danger: #e2dddc;
+$danger: #97220b;
 $secondary: #faa74a;
 $brandcolor1: #002a54;
 $brandcolor2: #611912;
 $brandcolor3: #8095aa;
 $brandcolor4: #8095;
-$grey: #ebebeb;
+$grey: #7cd2f5;
 $light: #ffffff;
 $dark: #000000;
 $darkhard: #09122e;
@@ -69,4 +69,4 @@ $custom-theme-colors: (
 $theme-colors: map-merge($theme-colors, $custom-theme-colors);
 $theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
 
-@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../../node_modules/bootstrap";

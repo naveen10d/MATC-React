@@ -1,24 +1,24 @@
 export const cards = [
     {
-        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/512px-React-icon.svg.png?20220125121207',
+        imageUrl: 'https://www.datocms-assets.com/45470/1631110818-logo-react-js.png',
         url: '/react',
         name: 'react'
 
     },
     {
-        imageUrl: 'https://thumbs.dreamstime.com/b/python-logo-icon-vector-logos-logo-icons-set-social-media-flat-banner-vectors-svg-eps-jpg-jpeg-emblem-wallpaper-background-python-208329675.jpg',
+        imageUrl: 'https://logos-world.net/wp-content/uploads/2021/10/Python-Symbol.png',
         url: '/python',
         name: 'python'
 
     },
     {
-        imageUrl: 'https://qph.cf2.quoracdn.net/main-qimg-317f4ff0db8d0ba328fc6d627af72d89',
+        imageUrl: 'https://i.pinimg.com/originals/d9/7a/d7/d97ad7d1f3f486dc9309a87b0209538a.jpg',
         url: '/java',
         name: 'java'
 
     },
     {
-        imageUrl: 'https://angular.io/assets/images/logos/angularjs/AngularJS-Shield.svg',
+        imageUrl: 'https://www.logolynx.com/images/logolynx/01/017f96243fed45ea9b37ef8ab5f96740.png',
         url: '/angular',
         name: 'angular'
 
