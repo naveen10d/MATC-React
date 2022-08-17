@@ -6,6 +6,10 @@ import ReactPage from './Domains/React/ReactPage'
 import JavaPage from './Domains/Java/JavaPage'
 import PythonPage from './Domains/Python/PythonPage'
 import AngularPage from './Domains/Angular/AngularPage'
+import ReactQuestions from './Domains/React/ReactQuestions'
+import AngularQuestions from './Domains/Angular/AngularQuestions'
+import JavaQuestions from './Domains/Java/JavaQuestions'
+import PythonQuestions from './Domains/Python/PythonQuestions'
 
 export default function Routers() {
   return (
@@ -18,6 +22,10 @@ export default function Routers() {
         <Route path='/java' element={<JavaPage />} ></Route>
         <Route path='/python' element={<PythonPage />}></Route>
         <Route path='/angular' element={<AngularPage />}></Route>
+        <Route path='/reactQuestion' element={<ReactQuestions />}></Route>
+        <Route path='/javaQuestion' element={<JavaQuestions />} ></Route>
+        <Route path='/pythonQuestion' element={<PythonQuestions />}></Route>
+        <Route path='/angularQuestion' element={<AngularQuestions />}></Route>
       </Routes>
     </>
   )

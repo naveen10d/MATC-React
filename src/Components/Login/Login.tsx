@@ -19,7 +19,7 @@ export default function Login() {
   });
 
   const handleClick = () => {
-    // navigate(`/home`)
+    navigate(`/home`)
   }
   return (
     <div className="container">
