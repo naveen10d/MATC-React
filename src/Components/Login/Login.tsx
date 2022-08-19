@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { useFormik } from 'formik';
 import { ValidationSchema } from './ValidationSchema'
 import { useNavigate, Link } from 'react-router-dom';
@@ -7,20 +8,24 @@ export default function Login() {
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
-      firstName: '',
-      lastName: '',
       email: '',
-      phoneNumber: '',
       password: '',
-      confirmPassword: ''
     },
     validationSchema: ValidationSchema,
-    onSubmit: values => { },
+    onSubmit: values => {
+      let inputs = {
+        email: values.email,
+        password: values.password,
+      }
+      axios.post('http://localhost:4000/register', inputs).then((response) => {
+        console.log(response)
+        navigate(`/home`)
+      })
+        .catch((error) => {
+          console.log('error', error)
+        })
+    },
   });
-
-  const handleClick = () => {
-    navigate(`/home`)
-  }
   return (
     <div className="container">
       <div className="row header">
@@ -36,7 +41,10 @@ export default function Login() {
                   type="email"
                   name="email"
                   placeholder='Email'
-                  className='p-2 mt-4' />
+                  className='p-2 mt-4'
+                  onChange={formik.handleChange}
+                  value={formik.values.email}
+                />
                 {formik.touched.email && formik.errors.email ? (
                   <div className='d-flex justify-content-center align-items-center text-danger'>
                     {formik.errors.email}</div>) : null}
@@ -45,13 +53,16 @@ export default function Login() {
                 <input type="text"
                   name="password"
                   placeholder='Password'
-                  className='p-2 mt-4' />
+                  className='p-2 mt-4'
+                  onChange={formik.handleChange}
+                  value={formik.values.password}
+                />
                 {formik.touched.password && formik.errors.password ? (
                   <div className='d-flex justify-content-center align-items-center text-danger'>
                     {formik.errors.password}</div>) : null}
               </div>
               <div className='mt-4 p-3 w-100  d-flex justify-content-center align-items-center'>
-                <button type="submit" className='p-1 w-25' onClick={handleClick}>
+                <button type="submit" className='p-1 w-25'>
                   Log in
                 </button>
               </div>

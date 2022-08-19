@@ -2,6 +2,7 @@ import { useFormik } from 'formik';
 import { ValidationSchema } from './ValidationSchema'
 import { Assessment } from '../../assets/Cards'
 import { useNavigate, Link } from 'react-router-dom';
+import axios from 'axios'
 
 
 export default function Register() {
@@ -17,13 +18,26 @@ export default function Register() {
     },
     validationSchema: ValidationSchema,
     onSubmit: values => {
-      console.log('check', values)
+      let inputs = {
+        firstName: values.firstName,
+        lastName: values.lastName,
+        email: values.email,
+        phoneNumber: values.phoneNumber,
+        password: values.password,
+        confirmPassword: values.confirmPassword
+      }
+      axios.post('http://localhost:4000/register', inputs)
+        .then((response) => {
+          if (response.status === 201) {
+            navigate(`/login`)
+          }
+        })
+        .catch((err) => {
+          console.log("Email already exsits", err)
+        })
     },
-  });
 
-  const handleClick = () => {
-    // navigate(`/login`)
-  }
+  });
   return (
     <div
       className="container"
@@ -42,7 +56,10 @@ export default function Register() {
                     type="text"
                     name="firstName"
                     placeholder='FirstName'
-                    className='p-2 mt-4' />
+                    className='p-2 mt-4'
+                    onChange={formik.handleChange}
+                    value={formik.values.firstName}
+                  />
                   {formik.touched.firstName && formik.errors.firstName ? (
                     <div className='d-flex justify-content-center align-items-center text-danger'>
                       {formik.errors.firstName}</div>) : null}
@@ -50,9 +67,12 @@ export default function Register() {
                 <div>
                   <input
                     type="text"
-                    name="lName"
+                    name="lastName"
                     placeholder='LastName'
-                    className='p-2 mt-4' />
+                    className='p-2 mt-4'
+                    onChange={formik.handleChange}
+                    value={formik.values.lastName}
+                  />
                   {formik.touched.lastName && formik.errors.lastName ? (
                     <div className='d-flex justify-content-center align-items-center text-danger'>
                       {formik.errors.lastName}</div>) : null}
@@ -64,7 +84,10 @@ export default function Register() {
                     type="email"
                     name="email"
                     placeholder='Email'
-                    className='p-2 mt-4' />
+                    className='p-2 mt-4'
+                    onChange={formik.handleChange}
+                    value={formik.values.email}
+                  />
                   {formik.touched.email && formik.errors.email ? (
                     <div className='d-flex justify-content-center align-items-center text-danger'>
                       {formik.errors.email}</div>) : null}
@@ -74,7 +97,10 @@ export default function Register() {
                     type="text"
                     name="phoneNumber"
                     placeholder='PhoneNumber'
-                    className='p-2 mt-4' />
+                    className='p-2 mt-4'
+                    onChange={formik.handleChange}
+                    value={formik.values.phoneNumber}
+                  />
                   {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
                     <div className='d-flex justify-content-center align-items-center text-danger'>
                       {formik.errors.phoneNumber}</div>) : null}
@@ -85,7 +111,10 @@ export default function Register() {
                   <input type="text"
                     name="password"
                     placeholder='Password'
-                    className='p-2 mt-4' />
+                    className='p-2 mt-4'
+                    onChange={formik.handleChange}
+                    value={formik.values.password}
+                  />
                   {formik.touched.password && formik.errors.password ? (
                     <div className='d-flex justify-content-center align-items-center text-danger'>
                       {formik.errors.password}</div>) : null}
@@ -95,13 +124,16 @@ export default function Register() {
                     type="text"
                     name="confirmPassword"
                     placeholder='Confirm Password'
-                    className='p-2 mt-4' />
+                    className='p-2 mt-4'
+                    onChange={formik.handleChange}
+                    value={formik.values.confirmPassword}
+                  />
                   {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
                     <div className='d-flex justify-content-center align-items-center text-danger'>
                       {formik.errors.confirmPassword}</div>) : null}
                 </div>
               </div>
-              <button type="submit" className='mt-4 p-2 w-25' onClick={handleClick}>
+              <button type="submit" className='mt-4 p-2 w-25'>
                 Submit
               </button>
               <p className='mt-4'> Have already registered ? Then <Link to='/login'> Login </Link> to start online test.</p>
